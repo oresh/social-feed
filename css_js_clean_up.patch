@@ -1,0 +1,1041 @@
+From 8da3b56ab7ec92cae36ffcf59df76cea2b7a2c97 Mon Sep 17 00:00:00 2001
+From: kirill_cebotari <kirill.cebotari@wearepropeople.com>
+Date: Mon, 18 Mar 2013 12:02:14 -0700
+Subject: [PATCH] Issue: css and js cleanup
+
+---
+ css/style.css      |  213 +++++++++++++++++++++++-----------------------------
+ img/fb-icon-24.png |  Bin 4744 -> 2204 bytes
+ img/tw-icon-24.png |  Bin 4597 -> 1834 bytes
+ img/vk-icon-24.png |  Bin 5027 -> 2259 bytes
+ js/function.js     |  186 +++++++++++++++++++++++----------------------
+ php/template.php   |    6 +-
+ 6 files changed, 190 insertions(+), 215 deletions(-)
+
+diff --git a/css/style.css b/css/style.css
+index cd31e16..19994f8 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -1,175 +1,150 @@
+-/*Bootstrap*/
+-.social-feed-element p {
+-    margin: 0 0 10px;
+-}
++/* Plugin styles */
+ .social-feed-element .pull-left{
+-    float:left;
++  float:left;
++  margin-right: 10px;
+ }
+-.social-feed-element a {
+-    color: #0088cc;
+-    text-decoration: none;
++.social-feed-element .pull-right {
++  margin-left: 10px;
+ }
+-
+ .social-feed-element img {
+-    width: auto\9;
+-    height: auto;
+-    max-width: 100%;
+-    vertical-align: middle;
+-    border: 0;
+-    -ms-interpolation-mode: bicubic;
++  max-width: 100%;
++  width: auto\9;
++  height: auto;
++  border: 0;  
++  vertical-align: middle;
++  -ms-interpolation-mode: bicubic;
++}
++
++/* Link styles */
++.social-feed-element a {
++  color: #0088cc;
++  text-decoration: none;
+ }
+ .social-feed-element a:focus {
+-    outline: thin dotted #333;
+-    outline: 5px auto -webkit-focus-ring-color;
+-    outline-offset: -2px;
++  outline: thin dotted #333;
++  outline: 5px auto -webkit-focus-ring-color;
++  outline-offset: -2px;
+ }
+-
+ .social-feed-element a:hover,
+ .social-feed-element a:active {
+-    outline: 0;
++  outline: 0;
++  color: #005580;
++  text-decoration: underline;
+ }
+ 
+-
++/* Text styles */
+ .social-feed-element small {
+-    font-size: 85%;
++  font-size: 85%;
+ }
+-
+ .social-feed-element strong {
+-    font-weight: bold;
++  font-weight: bold;
+ }
+-
+ .social-feed-element em {
+-    font-style: italic;
++  font-style: italic;
+ }
+-.social-feed-element a {
+-    color: #0088cc;
+-    text-decoration: none;
++.social-feed-element p {
++  margin: 0 0 10px;
+ }
+-
+-.social-feed-element a:hover,
+-.social-feed-element a:focus {
+-    color: #005580;
+-    text-decoration: underline;
++.social-feed-element .media-body > p{
++  margin-bottom:4px;
++  height:20px;
++}
++.social-feed-element p.social-feed-text {
++  margin: 0;
+ }
+ 
++/* Message styles */
+ .social-feed-element,
+ .social-feed-element .media-body {
+-    overflow: hidden;
+-    *overflow: visible;
+-    zoom: 1;
++  overflow: hidden;
++  zoom: 1;
++  *overflow: visible;
++}
++.social-feed-element .media-body .social-network-icon{
++  margin-top: -3px;
++  margin-right:5px;
++  width:16px;
++}
++.social-feed-element .media-body div{
++  color:#666;
++  line-height: 20px;
+ }
+-
+-
+ .social-feed-element:first-child {
+-    margin-top: 0;
++  margin-top: 0;
+ }
+-
+ .social-feed-element .media-object {
+-    display: block;
++  display: block;
++  width:48px;
++  border-radius:5px;
+ }
+-
+ .social-feed-element .media-heading {
+-    margin: 0 0 5px;
+-}
+-
+-.social-feed-element > .pull-left {
+-    margin-right: 10px;
++  margin: 0 0 5px;
+ }
+-
+-.social-feed-element  > .pull-right {
+-    margin-left: 10px;
+-}
+-
+ .social-feed-element .media-list {
+-    margin-left: 0;
+-    list-style: none;
++  margin-left: 0;
++  list-style: none;
+ }
+-
+ .social-feed-element .label{
+-    display: inline-block;
+-    padding: 2px 4px;
+-    font-size: 11.844px;
+-    font-weight: bold;
+-    line-height: 14px;
+-    color: #ffffff;
+-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+-    white-space: nowrap;
+-    vertical-align: baseline;
+-    background-color: #999999;
++  display: inline-block;
++  padding: 2px 4px;
++  background-color: #999;
++  color: #fff;
++  vertical-align: baseline;
++  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
++  white-space: nowrap;
++  font-weight: bold;
++  font-size: 11.844px;
++  line-height: 14px;
+ }
+-
+ .social-feed-element .label {
+-    -webkit-border-radius: 3px;
+-    -moz-border-radius: 3px;
+-    border-radius: 3px;
++  -webkit-border-radius: 3px;
++  -moz-border-radius: 3px;
++  border-radius: 3px;
+ }
+ .social-feed-element .label-info{
+-    background-color: #3a87ad;
++  background-color: #3a87ad;
+ }
+ .social-feed-element .btn .label{
+-    position: relative;
+-    top: -1px;
++  position: relative;
++  top: -1px;
+ }
+-
+ .social-feed-element .muted {
+-    color: #999999;
++  color: #999;
+ }
+-
+ .social-feed-element a.muted:hover,
+ .social-feed-element a.muted:focus {
+-    color: #808080;
++  color: #808080;
+ }
+ .social-feed-element .label-info[href]{
+-    background-color: #2d6987;
++  background-color: #2d6987;
+ }
+-
+-/*Plugin styles*/
+ .social-feed-element{
+-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+-    font-size: 14px;
+-    line-height: 20px;
+-    color: #333333;
+-    background-color: #ffffff;
+-    text-align:left;
+-    line-height: 16px;
+-    padding:5px;
+-    margin-top:15px;
+-    margin:-1px;
+-    border-bottom:1px solid #eee;
+-    border-top:1px solid #eee;
+-}
+-.social-feed-element .media-object{
+-    width:48px;
+-    border-radius:5px;
+-}
+-.social-feed-element .media-body img{
+-    width: 16px;
+-    margin-top: -3px;
+-    margin-right:5px;
+-}
+-.social-feed-element .media-body div{
+-    color:#666;
+-    line-height: 20px;
+-}
+-.social-feed-element .media-body p{
+-    margin-bottom:4px;
+-    height:20px;
++  margin:-1px;
++  padding:5px;
++  border-top:1px solid #eee;
++  border-bottom:1px solid #eee;
++  background-color: #fff;
++  color: #333;
++  text-align:left;
++  font-size: 14px;
++  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
++  line-height: 16px;
+ }
+ .social-feed-element .social-network-icon{
+-    opacity:0.7;
++  opacity:0.7;
+ }
+ .social-feed-element:hover{
+-    background-color:#f5f5f8;
+-}
+-.social-feed-element:hover .read-button{
+-    display:inline-block;
++  background-color:#f5f5f8;
+ }
+ .social-feed-element .read-button{
+-    opacity:0.9;
+-    margin-left:5px;
+-    display:none;
++  display:none;
++  margin-left:5px;
++  opacity:0.9;
++}
++.social-feed-element:hover .read-button{
++  display:inline-block;
+ }
+ .social-feed-element .author-title{
+-    font-weight: 500;
+-    color: #444;
++  color: #444;
++  font-weight: 500;  
+ }
+\ No newline at end of file
+diff --git a/img/fb-icon-24.png b/img/fb-icon-24.png
+index 9e06af8572902168d5df2681c5fdafb43e85db22..c7daadbb3ebc6b265f9341431c18f7b6272a76db 100644
+GIT binary patch
+literal 2204
+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
+S$Q#hlj~?QU^y=^o&-*W^Xf411
+
+literal 4744
+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
+WDfugA$~OK00000<MNUMnLSTYe@%I`4
+
+diff --git a/img/tw-icon-24.png b/img/tw-icon-24.png
+index db3b76438af9b1db3df153d229748d1cb512b3d8..c5800d8846ac759cc9620674994543b1d479d70a 100644
+GIT binary patch
+literal 1834
+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
+Pw_|E#VOV_B^Xh*9-l*Ln
+
+literal 4597
+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
+
+diff --git a/img/vk-icon-24.png b/img/vk-icon-24.png
+index 766e4c955b8f1098e817b7357cddf2381e9533be..1b257cbfb8ce0559df3ef7227440ac124786b6fd 100644
+GIT binary patch
+delta 2258
+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
+
+literal 5027
+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
+
+diff --git a/js/function.js b/js/function.js
+index 78c3d3b..569128a 100644
+--- a/js/function.js
++++ b/js/function.js
+@@ -18,7 +18,7 @@
+             length: 500 // maximum length of post message shown
+         };
+         //---------------------------------------------------------------------------------
+-        var options = $.extend(defaults, options);  
++        var options = $.extend(defaults, options),  
+         container = $(this); 
+         container.empty().css('display', 'inline-block');
+         //---------------------------------------------------------------------------------
+@@ -41,36 +41,36 @@
+             }
+         }
+         function getFacebookData(access_token){
+-            var element;
+-            var limit='limit='+options.fb_limit;
+-            var query_extention='&access_token='+access_token+'';
+-            var fb_graph='https://graph.facebook.com/';
+-            var feed_json=fb_graph+options.fb_username+'/feed?'+limit+query_extention; 
++            var limit = 'limit=' + options.fb_limit,
++              query_extention = '&access_token=' + access_token + '',
++              fb_graph = 'https://graph.facebook.com/',
++              feed_json = fb_graph + options.fb_username + '/feed?' + limit + query_extention; 
+             $.get(feed_json,function(json){
+                 $.each(json.data,function(){
+-                    element=this;
+-                    var text,url;
+-                    var post={};
+-                    if (element.message!=undefined || element.story!=undefined){
+-                        if (element.message!=undefined)
+-                            text=element.message;
++                    var element = this,
++                      text,
++                      url,
++                      post = {};
++                    if (element.message != undefined || element.story != undefined){
++                        if (element.message != undefined)
++                            text = element.message;
+                         else
+-                            text=element.story;
++                            text = element.story;
+                         if (element.link!=undefined)
+-                            url=element.link;
++                            url = element.link;
+                         else
+-                            url='http://facebook.com/'+element.from.id;
+-                        post.dt_create=dateToSeconds(convertDate(element.created_time));
+-                        post.author_link='http://facebook.com/'+element.from.id;
+-                        post.author_picture=fb_graph+element.from.id+'/picture';
+-                        post.post_url=url;
+-                        post.author_name=element.from.name;
+-                        post.message=text;
+-                        post.description='';
+-                        post.link=url;
+-                        if (element.description!=undefined)
+-                            post.description=element.description;
+-                        post.social_network='fb';
++                            url = 'http://facebook.com/' + element.from.id;
++                        post.dt_create = dateToSeconds(convertDate(element.created_time));
++                        post.author_link = 'http://facebook.com/' + element.from.id;
++                        post.author_picture = fb_graph + element.from.id + '/picture';
++                        post.post_url = rl;
++                        post.author_name = element.from.name;
++                        post.message = text;
++                        post.description = '';
++                        post.link = url;
++                        if (element.description != undefined)
++                            post.description = element.description;
++                        post.social_network = 'fb';
+                         getTemplate(post);
+                     }
+                 });
+@@ -78,38 +78,37 @@
+             
+         }
+         function getVkontakteData(){
+-            var vk_json='https://api.vk.com/method/wall.get?owner_id='+options.vk_username+'&filter=owner&count='+options.vk_limit+'&callback=?';
+-            var vk_user_json='https://api.vk.com/method/users.get?fields=first_name,%20last_name,%20screen_name,%20photo&uid=';
+-            var vk_group_json='https://api.vk.com/method/groups.getById?fields=first_name,%20last_name,%20screen_name,%20photo&gid=';
++            var vk_json = 'https://api.vk.com/method/wall.get?owner_id='+options.vk_username+'&filter=owner&count='+options.vk_limit+'&callback=?',
++              vk_user_json = 'https://api.vk.com/method/users.get?fields=first_name,%20last_name,%20screen_name,%20photo&uid=',
++              vk_group_json = 'https://api.vk.com/method/groups.getById?fields=first_name,%20last_name,%20screen_name,%20photo&gid=';
+             $.get(vk_json,function(json){
+                
+                 $.each(json.response, function(){ 
+                     if (this != parseInt(this)){
+-                        var element;
+-                        element=this;
+-                        var post={};
+-                        post.dt_create=dateToSeconds(new Date(element.date*1000));
+-                        post.description=' ';
+-                        post.message=stripHTML(element.text);
++                        var element = this,
++                          post = {};
++                        post.dt_create = ateToSeconds(new Date(element.date*1000));
++                        post.description = ' ';
++                        post.message = stripHTML(element.text);
+                         post.social_network='vk';
+                         //if the post is created by user
+-                        if (element.from_id>0){
+-                            vk_user_json+=element.from_id+'&callback=?';
++                        if (element.from_id > 0){
++                            vk_user_json += element.from_id + '&callback=?';
+                             $.get(vk_user_json,function(user_json){
+-                                post.author_name=user_json.response[0].first_name+' '+user_json.response[0].last_name;
+-                                post.author_picture=user_json.response[0].photo;
+-                                post.author_link='http://vk.com/'+user_json.response[0].screen_name;
+-                                post.link='http://vk.com/'+user_json.response[0].screen_name+'?w=wall'+user_json.response[0].uid+'_'+element.id+'%2Fall';
++                                post.author_name = user_json.response[0].first_name + ' ' + user_json.response[0].last_name;
++                                post.author_picture = user_json.response[0].photo;
++                                post.author_link = 'http://vk.com/' + user_json.response[0].screen_name;
++                                post.link = 'http://vk.com/' + user_json.response[0].screen_name + '?w=wall' + user_json.response[0].uid + '_' + element.id + '%2Fall';
+                                 getTemplate(post); 
+                             },'json');
+                         //if the post is created by group    
+                         }else{
+-                            vk_group_json+=(-1)*element.from_id+'&callback=?';
++                            vk_group_json += (-1) * element.from_id + '&callback=?';
+                             $.get(vk_group_json,function(user_json){
+-                                post.author_name=user_json.response[0].name;
+-                                post.author_picture=user_json.response[0].photo;
+-                                post.author_link='http://vk.com/'+user_json.response[0].screen_name;
+-                                post.link='http://vk.com/'+user_json.response[0].screen_name+'?w=wall-'+user_json.response[0].gid+'_'+element.id;
++                                post.author_name = user_json.response[0].name;
++                                post.author_picture = user_json.response[0].photo;
++                                post.author_link = 'http://vk.com/' + user_json.response[0].screen_name;
++                                post.link = 'http://vk.com/' + user_json.response[0].screen_name + '?w=wall-' + user_json.response[0].gid  + '_' + element.id;
+                                 getTemplate(post);
+                                    
+                             },'json');
+@@ -119,38 +118,37 @@
+                   
+             },'json');
+         }
++
+         function getTwitterData(){
+-            var element;     
+-            var tw_json='http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name='+options.tw_username+'&count='+options.tw_limit+'&callback=?';
++            var tw_json = 'http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=' + options.tw_username + '&count=' + options.tw_limit + '&callback=?';
+             $.ajax({
+                 url:tw_json,
+                 dataType:'json',
+                 timeout:1000,
+                 success:function(json){
+                     $.each(json, function(i) { 
+-                        var post={};
+-                        element=this;
+-                        post.dt_create=dateToSeconds(convertDate(fixTwitterDate(element.created_at)));
+-                        post.author_link='http://twitter.com/'+element.user.screen_name;
+-                        post.author_picture=element.user.profile_image_url;
+-                        post.post_url='http://twitter.com/'+element.user.screen_name+'/status/'+element.id_str;
+-                        post.author_name=element.user.name;
+-                        post.message=element.text;
+-                        post.description='';
+-                        post.social_network='tw';
+-                        post.link='http://twitter.com/'+element.user.screen_name+'/status/'+element.id_str;
++                        var post = {},
++                          element = this;
++                        post.dt_create = dateToSeconds(convertDate(fixTwitterDate(element.created_at)));
++                        post.author_link = 'http://twitter.com/'+element.user.screen_name;
++                        post.author_picture = element.user.profile_image_url;
++                        post.post_url = post.author_link + '/status/' + element.id_str;
++                        post.author_name = element.user.name;
++                        post.message = element.text;
++                        post.description = '';
++                        post.social_network = 'tw';
++                        post.link = 'http://twitter.com/' + element.user.screen_name + '/status/' + element.id_str;
+                         if (options.cookies)
+-                            $.cookie('social-feed-twitter'+i,JSON.stringify(post));
++                            $.cookie('social-feed-twitter' + i,JSON.stringify(post));
+                         getTemplate(post);                    
+                     });
+                 }, 
+                 error:function(e){
+                     if (options.cookies){
+-                        var i;
+                         //if can not fetch data from Twitter (because of the 150 responses / hour limit) get them from cookies
+-                        for (i=0;i<options.tw_limit && $.cookie('social-feed-twitter'+i)!=null ;i++){
+-                            var data=JSON.parse($.cookie('social-feed-twitter'+i));
+-                            data.dt_create=convertDate(data.dt_create);
++                        for (var i = 0, limit = options.tw_limit; i < limit && $.cookie('social-feed-twitter' + i) != null; i++){
++                            var data = JSON.parse($.cookie('social-feed-twitter' + i));
++                            data.dt_create = convertDate(data.dt_create);
+                             getTemplate(data);
+                         }            
+                     }
+@@ -161,38 +159,38 @@
+         //Render functions
+         //---------------------------------------------------------------------------------
+         function getTemplate(data){
+-            var content=data;
++            var content = data;
+            
+-            content.time_ago=timeAgo(data.dt_create);
+-            content.text=escapeHtml(wrapLinks(shorten(data.message+' '+data.description)));
+-            content.social_icon=options.plugin_folder+'img/'+data.social_network+'-icon-24.png';
+-            $.post(options.plugin_folder+'php/template.php',content ,function(template){
++            content.time_ago = timeAgo(data.dt_create);
++            content.text = escapeHtml(wrapLinks(shorten(data.message + ' ' + data.description)));
++            content.social_icon = options.plugin_folder + 'img/' + data.social_network + '-icon-24.png';
++            $.post(options.plugin_folder + 'php/template.php', content,function(template){
+                 placeTemplate(template,data);      
+             });
+         }
+         function placeTemplate(template,data){
+-            if ($(container).children().length==0){
++            if ($(container).children().length == 0){
+                 $(container).append(template);  
+             }else{
+-                var i=0;
+-                var insert_index=-1;
++                var i = 0,
++                  insert_index = -1,
++                  container = $(container);
+                     
+-                $.each($(container).children(), function(){ 
+-                    if ($(this).attr('dt_create')>data.dt_create){
+-                        insert_index=i;
++                $.each(container.children(), function(){
++                    if ($(this).attr('dt_create') > data.dt_create){
++                        insert_index = i;
+                         return false;
+                     }
+                     i++;
+                 });
+-                $(container).append(template); 
+-                if (insert_index>=0){
++                container.append(template);
++                if (insert_index >= 0){
+                     insert_index++;
+-                    var before=$(container).children('div:nth-child('+insert_index+')');
+-                    var current=$(container).children('div:last-child');
++                    var before = container.children('div:nth-child('+insert_index+')'),
++                      current = container.children('div:last-child');
+                     $(current).insertBefore(before);  
+                 }
+                 else{
+-                    
+                 }
+                 
+             }
+@@ -207,20 +205,20 @@
+             return string.replace(/\bhttp[^ ]+/ig, wrapLinkTemplate);
+         }
+         function convertDate(string){
+-            string = string.replace('+0000','Z');
+-            var time = ('' + string).replace(/-/g,"/").replace(/[TZ]/g," ").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+-            if(time.substr(time.length-4,1)==".") time =time.substr(0,time.length-4);
++            string = string.replace('+0000', 'Z');
++            var time = ('' + string).replace(/-/g, "/").replace(/[TZ]/g, " ").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
++            if(time.substr(time.length - 4, 1) == ".") time = time.substr(0,time.length - 4);
+             return new Date(time);
+         }
+         function shorten(string){
+-            string=$.trim(string);
++            string = $.trim(string);
+             if (string.length > options.length)
+             {
+-                var cut=string.substring(0,options.length);
+-                var link_start_position=cut.lastIndexOf('http');
+-                if (link_start_position>0){
+-                    var link_end_position=string.indexOf(' ',link_start_position);
+-                    if (link_end_position>options.length && string!=string.substring(0,link_end_position))
++                var cut = string.substring(0, options.length),
++                  link_start_position = cut.lastIndexOf('http');
++                if (link_start_position > 0){
++                    var link_end_position = string.indexOf(' ',link_start_position);
++                    if (link_end_position > options.length && string != string.substring(0,link_end_position))
+                         return string.substring(0,link_end_position) + " ..";
+                     else
+                         return string;
+@@ -235,7 +233,7 @@
+             return (new Date - time) / 1000;    
+         }
+         function stripHTML(string){
+-            if (typeof string==="undefined" || string===null)
++            if (typeof string === "undefined" || string === null)
+                 return '';
+             return string.replace(/(<([^>]+)>)|nbsp;|\s{2,}|/ig,"");
+         }
+@@ -250,9 +248,9 @@
+             .replace(/'/g, "&#039;");
+         }
+         function fixTwitterDate(created_at) {
+-            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+-            var pattern = /\s/;
+-            var day_of_week,day,month_pos,month,year,time;
++            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
++              pattern = /\s/,
++              day_of_week,day,month_pos,month,year,time;
+             created_at = created_at.split(pattern);
+             for (var i = 0; i < created_at.length; i++){
+                 day_of_week = created_at[0];
+@@ -262,7 +260,7 @@
+                 year = created_at[5];
+                 time = created_at[3];
+             }
+-            created_at = year+'-'+month+'-'+day+'T'+time+'Z';
++            created_at = year + '-' + month + '-' + day + 'T' + time + 'Z';
+                 
+             if(created_at !== undefined)
+                 return created_at;
+diff --git a/php/template.php b/php/template.php
+index 7d5dada..bb68d79 100644
+--- a/php/template.php
++++ b/php/template.php
+@@ -1,5 +1,5 @@
+ <?php $p = $_POST; ?>
+-<div class="media social-feed-element" dt_create="<?php echo $p['dt_create']; ?>">
++<div class="social-feed-element" dt_create="<?php echo $p['dt_create']; ?>">
+     <a class="pull-left" href="<?php echo $p['author_link']; ?>" target="_blank">
+         <img class="media-object" src="<?php echo $p['author_picture']; ?>">
+     </a>
+@@ -11,7 +11,9 @@
+             </a>
+         </p>
+         <div>
+-            <?php echo htmlspecialchars_decode($p['text']); ?>
++            <p class="social-feed-text">
++                <?php echo htmlspecialchars_decode($p['text']); ?>
++            </p>
+         </div>
+     </div>
+ </div>
+\ No newline at end of file
+-- 
+1.7.9.5
+
